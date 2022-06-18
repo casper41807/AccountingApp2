@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  AccountingApp2
+
+  Created by 陳秉軒 on 2022/6/17.
+  
+*/
+"支出" = "EXPENSE";
+"輸入金額" = "Enter Amount";
+"來源" = "Source";
+"日期" = "Date";
+"類別" = "Category";
+"年份" = "Years";
+"月份" = "Months";
+"飲食" = "Food";
