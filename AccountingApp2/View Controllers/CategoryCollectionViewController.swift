@@ -91,7 +91,7 @@ class CategoryCollectionViewController: UICollectionViewController {
         }else{
             let incomeIndex = incomeCategory[indexPath.item]
             cell.categoryImage.image = UIImage(named:incomeIndex.rawValue)
-            cell.categoryLabel.text = incomeIndex.rawValue
+            cell.categoryLabel.text = NSLocalizedString("\(incomeIndex.rawValue)", comment: "")
         }
         
         return cell

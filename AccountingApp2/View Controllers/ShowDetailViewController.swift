@@ -41,7 +41,7 @@ class ShowDetailViewController: UIViewController {
         
         photoActivity.startAnimating()
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy年M月d日 a h:mm"
+        dateFormatter.dateFormat = NSLocalizedString("MMM d, yyyy h:mm a", comment: "")
         
         if let itemdata = itemdata{
             
@@ -49,16 +49,16 @@ class ShowDetailViewController: UIViewController {
             remarkTextView.isHidden = true
             
             moneyTextField.text = String(itemdata.money)
-            if dateFormatter.string(from: itemdata.date!).contains("AM"){
-                dateFormatter.dateFormat = "yyyy年M月d日 上午h:mm"
-            }else{
-                dateFormatter.dateFormat = "yyyy年M月d日 下午h:mm"
-            }
+//            if dateFormatter.string(from: itemdata.date!).contains("AM"){
+//                dateFormatter.dateFormat = "yyyy年M月d日 上午h:mm"
+//            }else{
+//                dateFormatter.dateFormat = "yyyy年M月d日 下午h:mm"
+//            }
             dateLabel.text = dateFormatter.string(from: itemdata.date!)
-            categoryButton.setTitle(itemdata.category!, for: .normal)
-            sourceTextField.text = itemdata.source
-            classificationLabel.text = itemdata.classification
-            if classificationLabel.text == "支出"{
+            categoryButton.setTitle(NSLocalizedString("\(itemdata.category!)", comment: ""), for: .normal)
+            sourceTextField.text = NSLocalizedString("\(itemdata.source!)", comment: "")
+            classificationLabel.text = NSLocalizedString("\(itemdata.classification!)", comment: "")
+            if classificationLabel.text == "Expense"{
                 classificationLabel.textColor = .systemGreen
             }else{
                 classificationLabel.textColor = .red
@@ -69,7 +69,7 @@ class ShowDetailViewController: UIViewController {
             remarkTextView.layer.borderColor = UIColor.gray.cgColor
             
             if itemdata.remark == ""{
-                remarkTextView.text = "無備註"
+                remarkTextView.text = NSLocalizedString("No remark", comment: "")
             }else{
                 remarkTextView.text = itemdata.remark
             }

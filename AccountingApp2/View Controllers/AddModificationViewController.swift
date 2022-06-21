@@ -52,6 +52,9 @@ class AddModificationViewController: UIViewController,UITextViewDelegate {
     let expenseCategory = ExpenseCategory.allCases
     let incomeCategory = IncomeCategory.allCases
     
+    
+    
+    
     //點空白處離開鍵盤
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
             view.endEditing(true)
@@ -85,10 +88,10 @@ class AddModificationViewController: UIViewController,UITextViewDelegate {
         label.font = UIFont.boldSystemFont(ofSize: 17.0)
         label.textAlignment = .center //置中
         label.textColor = .white
-        label.text = "設定"
+        label.text = NSLocalizedString("Add", comment: "")
         
         navigationItem.titleView = label
-        
+        navigationItem.backButtonTitle = NSLocalizedString("Add", comment: "")
         
         noConnection.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(noConnection)
@@ -98,7 +101,7 @@ class AddModificationViewController: UIViewController,UITextViewDelegate {
         noConnection.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         noConnection.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         noConnection.numberOfLines = 0
-        noConnection.text = "網路未連接，請連接後重試"
+        noConnection.text = NSLocalizedString("No internet connection,Please try again", comment: "")
         noConnection.font = .systemFont(ofSize: 20)
         noConnection.textAlignment = .center
         noConnection.textColor = .white
@@ -121,10 +124,10 @@ class AddModificationViewController: UIViewController,UITextViewDelegate {
             photoActivityIndicator.startAnimating()
             moneyTextField.text = String(itemdata.money)
             datePickerOutlet.date = itemdata.date!
-            categoryOutlet.setTitle(itemdata.category!, for: .normal)
-            sourceTextField.text = itemdata.source
-            classificationOutlet.text = itemdata.classification
-            if classificationOutlet.text == "支出"{
+            categoryOutlet.setTitle(NSLocalizedString("\(itemdata.category!)", comment: ""), for: .normal)
+            sourceTextField.text = NSLocalizedString("\(itemdata.source!)", comment: "")
+            classificationOutlet.text = NSLocalizedString("\(itemdata.classification!)", comment: "")
+            if classificationOutlet.text == NSLocalizedString("Expense", comment: ""){
                 classificationOutlet.textColor = .systemGreen
             }else{
                 classificationOutlet.textColor = .red
@@ -160,7 +163,7 @@ class AddModificationViewController: UIViewController,UITextViewDelegate {
                                     self?.photoActivityIndicator.stopAnimating()
                                     self?.photoOutlet.setImage(UIImage(systemName: "photo"), for: .normal)
                                     self?.photoOutlet.tintColor = .systemCyan
-                                    self?.noConnection.text = "網路未連接，無法顯示照片"
+                                    self?.noConnection.text = NSLocalizedString("No internet connection,Can't display photo", comment: "")
                                     self?.noConnection.isHidden = false
                                     Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
                                         self?.noConnection.isHidden = true
@@ -202,7 +205,7 @@ class AddModificationViewController: UIViewController,UITextViewDelegate {
          
         
         placeholder.frame.size = CGSize(width: 190,height: 20)
-        placeholder.text = "  新增備註..."
+        placeholder.text = NSLocalizedString("  Write something...", comment: "")
         placeholder.textColor = .lightGray
 //        placeholder.backgroundColor = .white
         placeholder.font = UIFont.systemFont(ofSize: 17)
@@ -244,12 +247,12 @@ class AddModificationViewController: UIViewController,UITextViewDelegate {
     @IBAction func unwindToAddView(_ unwindSegue: UIStoryboardSegue) {
         if let sourceViewController = unwindSegue.source as? CategoryCollectionViewController{
             if sourceViewController.categorySegmented.selectedSegmentIndex == 0{
-                categoryOutlet.setTitle(expenseCategory[sourceViewController.row].rawValue, for: .normal)
-                classificationOutlet.text = "支出"
+                categoryOutlet.setTitle(NSLocalizedString("\(expenseCategory[sourceViewController.row].rawValue)", comment: ""), for: .normal)
+                classificationOutlet.text = NSLocalizedString("Expense", comment: "")
                 classificationOutlet.textColor = .systemGreen
             }else{
-                categoryOutlet.setTitle(incomeCategory[sourceViewController.row].rawValue, for: .normal)
-                classificationOutlet.text = "收入"
+                categoryOutlet.setTitle(NSLocalizedString("\(incomeCategory[sourceViewController.row].rawValue)", comment: ""), for: .normal)
+                classificationOutlet.text = NSLocalizedString("Income", comment: "")
                 classificationOutlet.textColor = .red
             }
             
@@ -266,8 +269,11 @@ class AddModificationViewController: UIViewController,UITextViewDelegate {
         let money = moneyTextField.text ?? ""
         let date = datePickerOutlet.date
         let category = categoryOutlet.titleLabel?.text
+//        let category = category
         let source = sourceTextField.text ?? ""
+//        let source = source
         let classification = classificationOutlet.text
+//        let classification = classification
         let remark = remarkTextView.text ?? ""
         
 //        let photo = photoOutlet.image(for: .normal)?.pngData()
@@ -280,9 +286,9 @@ class AddModificationViewController: UIViewController,UITextViewDelegate {
                 let itemData = ItemData(context: appDelegate.persistentContainer.viewContext)
                 itemData.money = Int32(money) ?? 0
                 itemData.date = date
-                itemData.category = category
-                itemData.source = source
-                itemData.classification = classification
+                itemData.category = NSLocalizedString("\(category!)", comment: "")
+                itemData.source = NSLocalizedString("\(source)", comment: "")
+                itemData.classification = NSLocalizedString("\(classification!)", comment: "")
                 itemData.remark = remark
 //                itemData.photo = photo
                 itemData.imageStr = imageStr
@@ -292,9 +298,9 @@ class AddModificationViewController: UIViewController,UITextViewDelegate {
             }else{
                 itemdata?.money = Int32(money) ?? 0
                 itemdata?.date = date
-                itemdata?.category = category
-                itemdata?.source = source
-                itemdata?.classification = classification
+                itemdata?.category = NSLocalizedString("\(category!)", comment: "")
+                itemdata?.source = NSLocalizedString("\(source)", comment: "")
+                itemdata?.classification = NSLocalizedString("\(classification!)", comment: "")
                 itemdata?.remark = remark
                 if itemdata?.imageStr == nil {
                     itemdata?.imageStr = imageStr
@@ -306,9 +312,9 @@ class AddModificationViewController: UIViewController,UITextViewDelegate {
         }else if segue.identifier == "backSearchView"{
             itemdata?.money = Int32(money) ?? 0
             itemdata?.date = date
-            itemdata?.category = category
-            itemdata?.source = source
-            itemdata?.classification = classification
+            itemdata?.category = NSLocalizedString("\(category!)", comment: "")
+            itemdata?.source = NSLocalizedString("\(source)", comment: "")
+            itemdata?.classification = NSLocalizedString("\(classification!)", comment: "")
             itemdata?.remark = remark
             if itemdata?.imageStr == nil {
                 itemdata?.imageStr = imageStr
@@ -342,7 +348,7 @@ class AddModificationViewController: UIViewController,UITextViewDelegate {
                                         self?.okOutlet.isEnabled = true
                                         self?.photoActivityIndicator.stopAnimating()
                                         self?.noConnection.isHidden = false
-                                        self?.noConnection.text = "網路未連接\n紀錄相片需要網路上傳\n請連接後重試"
+                                        self?.noConnection.text = NSLocalizedString("No internet connection\nRecording photo need internet", comment: "")
                                         Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { [weak self] _ in
                                             self?.noConnection.isHidden = true
                                         }
@@ -369,7 +375,7 @@ class AddModificationViewController: UIViewController,UITextViewDelegate {
                                     self?.okOutlet.isEnabled = true
                                     self?.photoActivityIndicator.stopAnimating()
                                     self?.noConnection.isHidden = false
-                                    self?.noConnection.text = "網路未連接\n紀錄相片需要網路上傳\n請連接後重試"
+                                    self?.noConnection.text = NSLocalizedString("No internet connection\nRecording photo need internet", comment: "")
                                     Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { [weak self] _ in
                                         self?.noConnection.isHidden = true
                                     }
@@ -396,7 +402,7 @@ class AddModificationViewController: UIViewController,UITextViewDelegate {
                                 self?.okOutlet.isEnabled = true
                                 self?.photoActivityIndicator.stopAnimating()
                                 self?.noConnection.isHidden = false
-                                self?.noConnection.text = "網路未連接\n紀錄相片需要網路上傳\n請連接後重試"
+                                self?.noConnection.text = NSLocalizedString("No internet connection\nRecording photo need internet", comment: "")
                                 Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { [weak self] _ in
                                     self?.noConnection.isHidden = true
                                 }
@@ -412,7 +418,7 @@ class AddModificationViewController: UIViewController,UITextViewDelegate {
             }else{
                 okOutlet.isEnabled = true
                 photoActivityIndicator.stopAnimating()
-                let alert = UIAlertController(title: "錯誤", message: "請填寫金額&來源", preferredStyle: .alert)
+                let alert = UIAlertController(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Please fill in Amount&Source", comment: ""), preferredStyle: .alert)
                 let action = UIAlertAction(title: "OK", style: .default)
                 alert.addAction(action)
                 present(alert, animated: true)
@@ -467,10 +473,10 @@ extension AddModificationViewController:UIPickerViewDelegate,UIPickerViewDataSou
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
-        return account[row].rawValue
+        return NSLocalizedString("\(account[row].rawValue)", comment: "")
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        sourceTextField.text = account[row].rawValue
+        sourceTextField.text = NSLocalizedString("\(account[row].rawValue)", comment: "")
         view.endEditing(true)
         
     }
@@ -481,17 +487,17 @@ extension AddModificationViewController:UIImagePickerControllerDelegate,UINaviga
     
     func showSourceTypeActionSheet(){
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let cameraAction = UIAlertAction(title: "開啟相機", style: .default) { _ in
+        let cameraAction = UIAlertAction(title: NSLocalizedString("Camera", comment: ""), style: .default) { _ in
             print("開啟相機")
             self.showCamera()
             alert.dismiss(animated: true, completion: nil)
         }
-        let photoLibraryAction = UIAlertAction(title: "選擇相簿", style: .default) { _ in
+        let photoLibraryAction = UIAlertAction(title: NSLocalizedString("Album", comment: ""), style: .default) { _ in
             print("選擇相簿")
             self.showPhotoLibrary()
             alert.dismiss(animated: true, completion: nil)
         }
-        let cancelAction = UIAlertAction(title: "取消", style:.cancel) { _ in
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style:.cancel) { _ in
             print("取消")
             alert.dismiss(animated: true, completion: nil)
         }

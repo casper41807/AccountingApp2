@@ -22,6 +22,7 @@ class ChooseDateViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
     @IBOutlet weak var chooseTextField: UITextField!
     @IBOutlet weak var endDateButton: UIButton!
     @IBOutlet weak var startDateButton: UIButton!
+    @IBOutlet weak var confirmOutlet: UIButton!
     
     @IBOutlet var startDatePicker: UIDatePicker!
     
@@ -36,6 +37,7 @@ class ChooseDateViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
     
     let years = [2017,2018,2019,2020,2021,2022,2023,2024,2025,2026,2027,2028]
     let months = [1,2,3,4,5,6,7,8,9,10,11,12]
+    let engMonths = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
     let dateFormatter = DateFormatter()
     
     var startDate:Date?
@@ -51,6 +53,8 @@ class ChooseDateViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         
         pickerView.delegate = self
         pickerView.dataSource = self
+        confirmOutlet.setTitle(NSLocalizedString("confirm", comment: ""), for: .normal)
+        confirmOutlet.layer.cornerRadius = 5
     
         overrideUserInterfaceStyle = .light
     }
@@ -59,7 +63,7 @@ class ChooseDateViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
     @IBAction func segmentedAction(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex{
         case 0:
-            showLabel.text = "請選擇年份"
+            showLabel.text = NSLocalizedString("Select Year", comment: "")
             pickerView.reloadAllComponents()
             pickerView.isHidden = false
             selfStack.isHidden = true
@@ -69,7 +73,7 @@ class ChooseDateViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
            
             
         case 1:
-            showLabel.text = "請選擇月份"
+            showLabel.text = NSLocalizedString("Select Month", comment: "")
             pickerView.reloadAllComponents()
             pickerView.isHidden = false
             selfStack.isHidden = true
@@ -80,7 +84,7 @@ class ChooseDateViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
             
             
         default:
-            showLabel.text = "自定義日期"
+            showLabel.text = NSLocalizedString("Custom Date", comment: "")
             pickerView.isHidden = true
             selfStack.isHidden = false
             chooseTextField.isHidden = true
@@ -105,7 +109,7 @@ class ChooseDateViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
     
     
     @IBAction func startDatePickerAction(_ sender: UIDatePicker) {
-        dateFormatter.dateFormat = "yyyy年M月d日"
+        dateFormatter.dateFormat = NSLocalizedString("MMM d, yyyy", comment: "")
         if isStart == true{
             startDateButton.setTitle(dateFormatter.string(from: sender.date), for: .normal)
             
@@ -161,17 +165,24 @@ class ChooseDateViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
 //            let startDateComponents = DateComponents(calendar: Calendar.current,year: startYear, month: startMonth,day: startDay )
 //            let startDate = startDateComponents.date
 //            print(startDate)
-
-            
-            if startDate!.compare(endDate!) == .orderedAscending{
-                delegate?.dismissbackStartEnd(start: startDate!, end: endDate!,num: 2)
-                dismiss(animated: true)
+            if startDate != nil && endDate != nil{
+                if startDate?.compare(endDate!) == .orderedAscending{
+                    delegate?.dismissbackStartEnd(start: startDate!, end: endDate!,num: 2)
+                    dismiss(animated: true)
+                }else{
+                    let alert = UIAlertController(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Please check that the date is entered correctly", comment: ""), preferredStyle: .alert)
+                    let action = UIAlertAction(title: "ok", style: .default)
+                    alert.addAction(action)
+                    present(alert, animated: true)
+                }
             }else{
-                let alert = UIAlertController(title: "錯誤", message: "請檢查時間是否填入正確", preferredStyle: .alert)
+                let alert = UIAlertController(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Please check that the date is entered correctly", comment: ""), preferredStyle: .alert)
                 let action = UIAlertAction(title: "ok", style: .default)
                 alert.addAction(action)
                 present(alert, animated: true)
             }
+            
+           
         }
         
     }
@@ -195,9 +206,10 @@ class ChooseDateViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch segmentedOutlet.selectedSegmentIndex{
         case 0:
-            return "\(years[row])年"
+            return "\(years[row])"
         case 1:
-            return "\(months[row])月"
+            return NSLocalizedString("\(engMonths[row])", comment: "")
+//            "\(months[row])月"
         default:
             return ""
         }
@@ -205,11 +217,15 @@ class ChooseDateViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
+        let today = Date()
+        let calendar = Calendar.current
+        let year = calendar.component(.year, from: today)
+        
         switch segmentedOutlet.selectedSegmentIndex{
         case 0:
-            chooseTextField.text = "\(years[row])年"
+            chooseTextField.text = "\(years[row])"
         case 1:
-            chooseTextField.text = "\(months[row])月"
+            chooseTextField.text = "\(year)," + NSLocalizedString("\(engMonths[row])", comment: "") 
         default:
             return
         }

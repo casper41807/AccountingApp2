@@ -28,14 +28,17 @@ class MainTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        getItemDatas()
+
+        
         let label = UILabel()
         label.backgroundColor = .clear
         label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: 17.0)
         label.textAlignment = .center //置中
         label.textColor = .white
-        label.text = "簡易記帳"
+        label.text = NSLocalizedString("HandyRecord", comment: "")
         
+        navigationItem.backButtonTitle = NSLocalizedString("HandyRecord", comment: "")
         navigationItem.titleView = label
         
         overrideUserInterfaceStyle = .light
@@ -147,14 +150,16 @@ class MainTableViewController: UITableViewController {
 //        let index = allItems[indexPath.row]
         
         cell.moneyLabel.text = numberFormatter(money: index.money)
-        cell.categoryLabel.text = index.category
-        cell.accountLabel.text = index.source
-        if index.classification == "支出"{
+        cell.categoryLabel.text = NSLocalizedString("\(index.category!)", comment: "")
+        
+        
+        cell.accountLabel.text = NSLocalizedString("\(index.source!)", comment: "")
+        if index.classification == "Expense"{
             cell.moneyLabel.textColor = .systemGreen
         }else{
             cell.moneyLabel.textColor = .red
         }
-        cell.categoryImage.image = UIImage(named:index.category ?? "")
+        cell.categoryImage.image = UIImage(named: index.category!)
 //        cell.moneyLabel.text = index.money
 //        cell.CategoryLabel.text = index.category
 //        cell.AccountLabel.text = index.source
@@ -171,18 +176,18 @@ class MainTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if itemDatas.isEmpty == true {
-            return "點選右上角 '＋' 新增些紀錄吧!!"
+            return NSLocalizedString("Click '+' to add new record!!", comment: "")
         }else{
             var totalExpenseMoney:Int32 = 0
             var totalIncomeMoney:Int32 = 0
             itemDatas.forEach { ItemData in
-                if ItemData.classification == "支出"{
+                if ItemData.classification == "Expense"{
                     totalExpenseMoney += ItemData.money
                 }else{
                     totalIncomeMoney += ItemData.money
                 }
             }
-            let total = "支出總額:\(numberFormatter(money: totalExpenseMoney))\n收入總額:\(numberFormatter(money: totalIncomeMoney))"
+            let total = NSLocalizedString("Total Expense", comment: "") + ":\(numberFormatter(money: totalExpenseMoney))" + "\n" + NSLocalizedString("Total Income", comment: "") + ":\(numberFormatter(money: totalIncomeMoney))"
             
             return total
         }
@@ -211,6 +216,10 @@ class MainTableViewController: UITableViewController {
 //        tableView.deleteRows(at: [indexPath], with: .automatic)
     }
 
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

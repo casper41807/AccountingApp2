@@ -68,7 +68,7 @@ class ChartsTableViewController: UITableViewController,SentBackData {
         }
         
         let pieChartDataEntries = expensecategory.map{(category)->PieChartDataEntry in
-            return PieChartDataEntry(value: Double(calculateExpenseSum(category: category)), label: category.rawValue)
+            return PieChartDataEntry(value: Double(calculateExpenseSum(category: category)), label: NSLocalizedString("\(category.rawValue)", comment: ""))
         }
         
         
@@ -103,14 +103,14 @@ class ChartsTableViewController: UITableViewController,SentBackData {
         
         pieChartView.data = data
         
-        let totalAmount = itemDatas.reduce(0,{if $1.classification == "支出"{
+        let totalAmount = itemDatas.reduce(0,{if $1.classification == "Expense"{
             return $0+Int($1.money) };return $0})
         
         
         if pieChartDataEntries.isEmpty == true{
-            pieChartView.centerText = "查無資料"
+            pieChartView.centerText = NSLocalizedString("No Data", comment: "")
         }else{
-            pieChartView.centerText = "支出總和\n$\(numberFormatter(money: Int32(totalAmount)))"
+            pieChartView.centerText = NSLocalizedString("Total Expense", comment: "") + "\n$\(numberFormatter(money: Int32(totalAmount)))"
         }
         
         let legend = pieChartView.legend
@@ -131,7 +131,7 @@ class ChartsTableViewController: UITableViewController,SentBackData {
         }
         
         let pieChartDataEntries = incomecategory.map{(category)->PieChartDataEntry in
-            return PieChartDataEntry(value: Double(calculateIncomeSum(category: category)), label: category.rawValue)
+            return PieChartDataEntry(value: Double(calculateIncomeSum(category: category)), label: NSLocalizedString("\(category.rawValue)", comment: ""))
         }
         //設定項目 DataSet
         let dataSet = PieChartDataSet(entries: pieChartDataEntries, label: "")
@@ -164,13 +164,14 @@ class ChartsTableViewController: UITableViewController,SentBackData {
         
         pieChartView.data = data
     
-        let totalAmount = itemDatas.reduce(0,{if $1.classification == "收入"{
+        let totalAmount = itemDatas.reduce(0,{if $1.classification == "Income"{
             return $0+Int($1.money) };return $0})
         
         if pieChartDataEntries.isEmpty == true{
-            pieChartView.centerText = "查無資料"
+            pieChartView.centerText = NSLocalizedString("No Data", comment: "")
         }else{
-            pieChartView.centerText = "收入總和\n$\(numberFormatter(money: Int32(totalAmount)))"
+            pieChartView.centerText =
+            NSLocalizedString("Total Income", comment: "") + "\n$\(numberFormatter(money: Int32(totalAmount)))"
         }
         
         
@@ -293,13 +294,13 @@ class ChartsTableViewController: UITableViewController,SentBackData {
 //    }
     
     func calculateExpenseSum(category:ExpenseCategory)->Int32 {
-        let totalMoney = itemDatas.reduce(0,{if $1.category == category.rawValue{
+        let totalMoney = itemDatas.reduce(0,{if $1.category == "\(category.rawValue)"{
             return $0+Int($1.money) };return $0})
         return Int32(totalMoney)
     }
     
     func calculateIncomeSum(category:IncomeCategory)->Int32 {
-        let totalMoney = itemDatas.reduce(0,{if $1.category == category.rawValue{
+        let totalMoney = itemDatas.reduce(0,{if $1.category == "\(category.rawValue)"{
             return $0+Int($1.money) };return $0})
         return Int32(totalMoney)
     }
@@ -403,7 +404,7 @@ class ChartsTableViewController: UITableViewController,SentBackData {
             let index = expenseCategory[indexPath.row]
         
             cell.categoryImage.image = UIImage(named: index.rawValue)
-            cell.categoryLabel.text = index.rawValue
+            cell.categoryLabel.text = NSLocalizedString("\(index.rawValue)", comment: "")
             cell.totalLabel.text = numberFormatter(money: calculateExpenseSum(category: index))
             
             var sum:Int32 = 0
@@ -426,7 +427,7 @@ class ChartsTableViewController: UITableViewController,SentBackData {
             let index = incomeCategory[indexPath.row]
             
             cell.categoryImage.image = UIImage(named: index.rawValue)
-            cell.categoryLabel.text = index.rawValue
+            cell.categoryLabel.text = NSLocalizedString("\(index.rawValue)", comment: "")
             cell.totalLabel.text = numberFormatter(money: calculateIncomeSum(category: index))
             
             var sum:Int32 = 0
@@ -443,9 +444,6 @@ class ChartsTableViewController: UITableViewController,SentBackData {
                     cell.percentLabel.text = "\(percent.rounding(toDecimal: 1))%"
                 }
             }
-                
-            
-            
             print(percent)
         }
         return cell
@@ -455,40 +453,52 @@ class ChartsTableViewController: UITableViewController,SentBackData {
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else { return }
         header.textLabel?.textAlignment = .right
-        header.textLabel?.font = .systemFont(ofSize: 15)
+        header.textLabel?.font = .systemFont(ofSize: 14)
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        let calendar = Calendar.current
-        let month = calendar.component(.month, from: today)
-        let year = calendar.component(.year, from: today)
+        let dateFormatter = DateFormatter()
+    
+//        let calendar = Calendar.current
+//        let month = calendar.component(.month, from: today)
+//        let year = calendar.component(.year, from: today)
         
-        let startYear = calendar.component(.year, from: start)
-        let startMonth = calendar.component(.month, from: start)
-        let startDay = calendar.component(.day, from: start)
-        
-        let endYear = calendar.component(.year, from: end)
-        let endMonth = calendar.component(.month, from: end)
-        let endDay = calendar.component(.day, from: end)
+//        let startYear = calendar.component(.year, from: start)
+//        let startMonth = calendar.component(.month, from: start)
+//        let startDay = calendar.component(.day, from: start)
+//
+//        let endYear = calendar.component(.year, from: end)
+//        let endMonth = calendar.component(.month, from: end)
+//        let endDay = calendar.component(.day, from: end)
         
         
         if categorySegmented.selectedSegmentIndex == 0{
             if num == 0{
-                return "\(year)年  支出總金額"
+                dateFormatter.dateFormat = NSLocalizedString("yyyy", comment: "")
+                return "\(dateFormatter.string(from: today))  " + NSLocalizedString("Item of expense", comment: "")
             }else if num == 1{
-                return "\(year)年\(month)月  支出總金額"
+                dateFormatter.dateFormat = NSLocalizedString("MMM, yyyy", comment: "")
+                
+                return "\(dateFormatter.string(from: today))  " + NSLocalizedString("Item of expense", comment: "")
             }else{
-                return "\(startYear)年\(startMonth)月\(startDay)日 ~ \(endYear)年\(endMonth)月\(endDay)日  支出總金額"
+                dateFormatter.dateFormat = NSLocalizedString("MMM d, yyyy", comment: "")
+                
+                return "\(dateFormatter.string(from: start))  " + "~" + "  \(dateFormatter.string(from: end))  " + NSLocalizedString("Item of expense", comment: "")
             }
             
         }else{
             if num == 0{
-                return "\(year)年  收入總金額"
+                dateFormatter.dateFormat = NSLocalizedString("yyyy", comment: "")
+                return "\(dateFormatter.string(from: today))  " + NSLocalizedString("Item of Income", comment: "")
             }else if num == 1{
-                return "\(year)年\(month)月  收入總金額"
+                dateFormatter.dateFormat = NSLocalizedString("MMM, yyyy", comment: "")
+                
+                return "\(dateFormatter.string(from: today))  " + NSLocalizedString("Item of Income", comment: "")
             }else{
-                return "\(startYear)年\(startMonth)月\(startDay)日 ~ \(endYear)年\(endMonth)月\(endDay)日  收入總金額"
+                dateFormatter.dateFormat = NSLocalizedString("MMM d, yyyy", comment: "")
+                
+                return "\(dateFormatter.string(from: start))  " + "~" + "  \(dateFormatter.string(from: end))  " + NSLocalizedString("Item of Income", comment: "")
             }
         }
     }

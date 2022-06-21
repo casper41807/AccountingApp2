@@ -18,27 +18,27 @@ struct AllItem{
 
 
 enum ExpenseCategory: String, CaseIterable, Codable{
-    case food = "飲食"
-    case clothes = "服飾"
-    case house = "房屋"
-    case transportation = "交通"
-    case education = "教育"
-    case entertainment = "娛樂"
-    case other = "其他"
+    case Food
+    case Clothes
+    case House
+    case Traffic
+    case Education
+    case Entertainment
+    case Other
 }
 
 enum IncomeCategory: String, CaseIterable, Codable{
-    case salary = "薪水"
-    case bonus = "獎金"
-    case investment = "投資"
-    case otherIncom = "非法"
+    case Salary
+    case Bonus
+    case Investment
+    case OtherRevenue
 }
 
 enum Account:String, CaseIterable, Codable{
-    case cash = "現金"
-    case creditCard = "信用卡"
-    case mobilePayment = "行動支付"
-    case bank = "銀行"
-    case other = "其他"
+    case Cash 
+    case CreditCard
+    case MobilePayment
+    case Bank
+    case Other
     
 }

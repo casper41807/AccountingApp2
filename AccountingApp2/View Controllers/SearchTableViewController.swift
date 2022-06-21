@@ -34,7 +34,7 @@ class SearchTableViewController: UITableViewController,UISearchResultsUpdating, 
         searchController.searchBar.searchTextField.tintColor = .black
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         
-        searchController.searchBar.searchTextField.placeholder =  "金額,類別,來源,備註"
+        searchController.searchBar.searchTextField.placeholder =  NSLocalizedString("Amount,Category,Source,Remark", comment: "")
         navigationItem.searchController = searchController
         //畫面捲動時 search bar 將持續顯示在 navigation bar 上
         navigationItem.hidesSearchBarWhenScrolling = false
@@ -58,7 +58,7 @@ class SearchTableViewController: UITableViewController,UISearchResultsUpdating, 
         label.font = UIFont.boldSystemFont(ofSize: 17.0)
         label.textAlignment = .center //置中
         label.textColor = .white
-        label.text = "搜尋"
+        label.text = NSLocalizedString("Search", comment: "")
         
         navigationItem.titleView = label
     
@@ -75,7 +75,7 @@ class SearchTableViewController: UITableViewController,UISearchResultsUpdating, 
             // 透過AppDelegate取得資料
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
                 
-            let predicate = NSPredicate(format: "category CONTAINS[c] %@ OR remark CONTAINS[c] %@ OR source CONTAINS[c] %@ OR money == %i" , "\(searchText)","\(searchText)","\(searchText)",(Int(searchText) ?? 0))
+            let predicate = NSPredicate(format: "category CONTAINS[c] %@ OR remark CONTAINS[c] %@ OR source CONTAINS[c] %@ OR money == %i" , NSLocalizedString("\(searchText)", comment: ""),"\(searchText)",NSLocalizedString("\(searchText)", comment: ""),(Int(searchText) ?? 0))
             // 建立Context
             let context = appDelegate.persistentContainer.viewContext
             let request: NSFetchRequest<ItemData> = ItemData.fetchRequest()
@@ -183,9 +183,9 @@ class SearchTableViewController: UITableViewController,UISearchResultsUpdating, 
             let row = index[indexPath.row]
             cell.moneyLabel.text = numberFormatter(money: row.money)
             cell.categoryImage.image = UIImage(named: row.category ?? "")
-            cell.categoryLabel.text = row.category
-            cell.accountLabel.text = row.source
-            if row.classification == "支出"{
+            cell.categoryLabel.text = NSLocalizedString("\(row.category!)", comment: "")
+            cell.accountLabel.text = NSLocalizedString("\(row.source!)", comment: "")
+            if row.classification == "Expense"{
                 cell.moneyLabel.textColor = .systemGreen
             }else{
                 cell.moneyLabel.textColor = .red
@@ -254,12 +254,16 @@ class SearchTableViewController: UITableViewController,UISearchResultsUpdating, 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let itemdate = itemDate.sorted(by: {$0 < $1})
         let index = itemdate[section]
-        let calendar = Calendar.current
-        let day = calendar.component(.day, from: index)
-        let month = calendar.component(.month, from: index)
-        let year = calendar.component(.year, from: index)
-
-        return "\(year)年\(month)月\(day)日"
+//        let calendar = Calendar.current
+//        let day = calendar.component(.day, from: index)
+//        let month = calendar.component(.month, from: index)
+//        let year = calendar.component(.year, from: index)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = NSLocalizedString("MMM d, yyyy", comment: "")
+        
+        return "\(dateFormatter.string(from: index))"
+//        return "\(year)年\(month)月\(day)日"
         
     }
     

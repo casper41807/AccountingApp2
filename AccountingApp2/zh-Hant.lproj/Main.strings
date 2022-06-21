@@ -1,21 +1,11 @@
 
-/* Class = "UILabel"; text = "Label"; ObjectID = "0RP-pq-U79"; */
-"0RP-pq-U79.text" = "Label";
+
 
 /* Class = "UISegmentedControl"; 0dN-tg-jBF.segmentTitles[0] = "支出"; ObjectID = "0dN-tg-jBF"; */
 "0dN-tg-jBF.segmentTitles[0]" = "支出";
 
 /* Class = "UISegmentedControl"; 0dN-tg-jBF.segmentTitles[1] = "收入"; ObjectID = "0dN-tg-jBF"; */
 "0dN-tg-jBF.segmentTitles[1]" = "收入";
-
-/* Class = "UILabel"; text = "支出："; ObjectID = "2l5-Fy-oCE"; */
-"2l5-Fy-oCE.text" = "支出：";
-
-/* Class = "UILabel"; text = "收入："; ObjectID = "2vm-YE-col"; */
-"2vm-YE-col.text" = "收入：";
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "72B-aA-dwr"; */
-"72B-aA-dwr.text" = "Label";
 
 /* Class = "UITextField"; placeholder = "輸入金額"; ObjectID = "7HK-js-j5s"; */
 "7HK-js-j5s.placeholder" = "輸入金額";
@@ -38,21 +28,6 @@
 /* Class = "UISegmentedControl"; 9uA-TK-EVE.segmentTitles[2] = "自定義"; ObjectID = "9uA-TK-EVE"; */
 "9uA-TK-EVE.segmentTitles[2]" = "自定義";
 
-/* Class = "UILabel"; text = "0"; ObjectID = "9w8-z1-hIu"; */
-"9w8-z1-hIu.text" = "0";
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "F6a-3Y-vw9"; */
-"F6a-3Y-vw9.text" = "Label";
-
-/* Class = "UILabel"; text = "0"; ObjectID = "FlD-Zr-fdX"; */
-"FlD-Zr-fdX.text" = "0";
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "HDf-OL-6Xd"; */
-"HDf-OL-6Xd.text" = "Label";
-
-/* Class = "UILabel"; text = "0"; ObjectID = "HOp-Qf-7aS"; */
-"HOp-Qf-7aS.text" = "0";
-
 /* Class = "UILabel"; text = "來源"; ObjectID = "Hcg-Jv-iaC"; */
 "Hcg-Jv-iaC.text" = "來源";
 
@@ -62,32 +37,17 @@
 /* Class = "UITextField"; placeholder = "輸入金額"; ObjectID = "Ila-RG-heQ"; */
 "Ila-RG-heQ.placeholder" = "輸入金額";
 
-/* Class = "UILabel"; text = "0"; ObjectID = "KIM-iL-ULz"; */
-"KIM-iL-ULz.text" = "0";
-
-/* Class = "UILabel"; text = "~"; ObjectID = "LFy-Vt-rBC"; */
-"LFy-Vt-rBC.text" = "~";
-
 /* Class = "UILabel"; text = "剩餘預算："; ObjectID = "MUs-Vq-ca4"; */
 "MUs-Vq-ca4.text" = "剩餘預算：";
 
 /* Class = "UILabel"; text = "金額"; ObjectID = "Qry-l8-eLu"; */
 "Qry-l8-eLu.text" = "金額";
 
-/* Class = "UILabel"; text = "Label"; ObjectID = "TTn-lL-yZY"; */
-"TTn-lL-yZY.text" = "Label";
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "WyV-7h-sys"; */
-"WyV-7h-sys.text" = "Label";
-
 /* Class = "UINavigationItem"; title = "統計"; ObjectID = "YEM-PI-SoQ"; */
-"YEM-PI-SoQ.title" = "統計";
+"YEM-PI-SoQ.title" = "圖表";
 
 /* Class = "UIButton"; configuration.title = "點我選擇起始日期"; ObjectID = "Ymu-tr-cuP"; */
 "Ymu-tr-cuP.configuration.title" = "點我選擇起始日期";
-
-/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Ymu-tr-cuP"; */
-"Ymu-tr-cuP.normalTitle" = "Button";
 
 /* Class = "UIButton"; configuration.title = "點我選擇結束日期"; ObjectID = "bRY-bT-87S"; */
 "bRY-bT-87S.configuration.title" = "點我選擇結束日期";
@@ -98,32 +58,14 @@
 /* Class = "UILabel"; text = "分類"; ObjectID = "bRo-8x-QFd"; */
 "bRo-8x-QFd.text" = "分類";
 
-/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "bWe-RX-Shh"; */
-"bWe-RX-Shh.title" = "Item";
-
 /* Class = "UIButton"; configuration.title = "確認"; ObjectID = "c85-Xd-Cux"; */
 "c85-Xd-Cux.configuration.title" = "確認";
-
-/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "c85-Xd-Cux"; */
-"c85-Xd-Cux.normalTitle" = "Button";
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "fAS-zY-Lsh"; */
-"fAS-zY-Lsh.text" = "Label";
-
-/* Class = "UILabel"; text = "0"; ObjectID = "lXv-bt-lyg"; */
-"lXv-bt-lyg.text" = "0";
-
-/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "lel-rt-hG7"; */
-"lel-rt-hG7.normalTitle" = "Button";
 
 /* Class = "UITextField"; placeholder = "選擇來源"; ObjectID = "mVz-UT-ws7"; */
 "mVz-UT-ws7.placeholder" = "選擇來源";
 
 /* Class = "UILabel"; text = "分類"; ObjectID = "nBD-mL-LNp"; */
 "nBD-mL-LNp.text" = "分類";
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "nIo-RR-S15"; */
-"nIo-RR-S15.text" = "Label";
 
 /* Class = "UILabel"; text = "金額"; ObjectID = "nlu-eA-fKb"; */
 "nlu-eA-fKb.text" = "金額";
@@ -140,12 +82,6 @@
 /* Class = "UILabel"; text = "請選擇年份"; ObjectID = "rIy-ap-HQE"; */
 "rIy-ap-HQE.text" = "請選擇年份";
 
-/* Class = "UILabel"; text = "Label"; ObjectID = "s5G-ku-qAm"; */
-"s5G-ku-qAm.text" = "Label";
-
-/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "sMJ-hn-8mT"; */
-"sMJ-hn-8mT.title" = "Item";
-
 /* Class = "UISegmentedControl"; tJd-8X-Wk1.segmentTitles[0] = "支出"; ObjectID = "tJd-8X-Wk1"; */
 "tJd-8X-Wk1.segmentTitles[0]" = "支出";
 
@@ -158,14 +94,10 @@
 /* Class = "UITextField"; placeholder = "選擇來源"; ObjectID = "uN4-fn-eVA"; */
 "uN4-fn-eVA.placeholder" = "選擇來源";
 
-/* Class = "UILabel"; text = "Label"; ObjectID = "v9R-qv-0Mb"; */
-"v9R-qv-0Mb.text" = "Label";
-
 /* Class = "UILabel"; text = "支出"; ObjectID = "xCB-M2-v1R"; */
 "xCB-M2-v1R.text" = "支出";
 
 /* Class = "UILabel"; text = "飲食"; ObjectID = "xho-Qn-1FE"; */
 "xho-Qn-1FE.text" = "飲食";
 
-/* Class = "UILabel"; text = "本月預算："; ObjectID = "yHT-Cm-T58"; */
-"yHT-Cm-T58.text" = "本月預算：";
+

@@ -42,7 +42,7 @@ class DetailTableViewController: UITableViewController {
             itemDate = [Date]()
             
             newItemDatas = itemDatas.filter { ItemData in
-                ItemData.category == expenseCategory[row].rawValue
+                ItemData.category == "\(expenseCategory[row].rawValue)"
             }.sorted(by: {
                 $0.date! < $1.date!
             })
@@ -67,7 +67,7 @@ class DetailTableViewController: UITableViewController {
             itemDate = [Date]()
             
             newItemDatas = itemDatas.filter { ItemData in
-                ItemData.category == incomeCategory[row].rawValue
+                ItemData.category == "\(incomeCategory[row].rawValue)"
             }.sorted(by: {
                 $0.date! < $1.date!
             })
@@ -158,9 +158,9 @@ class DetailTableViewController: UITableViewController {
             let row = index[indexPath.row]
             cell.moneyLabel.text = numberFormatter(money: row.money)
             cell.categoryImage.image = UIImage(named: row.category ?? "")
-            cell.categoryLabel.text = row.category
-            cell.accountLabel.text = row.source
-            if row.classification == "支出"{
+            cell.categoryLabel.text = NSLocalizedString("\(row.category!)", comment: "")
+            cell.accountLabel.text = NSLocalizedString("\(row.source!)", comment: "")
+            if row.classification == "Expense"{
                 cell.moneyLabel.textColor = .systemGreen
             }else{
                 cell.moneyLabel.textColor = .red
@@ -190,12 +190,10 @@ class DetailTableViewController: UITableViewController {
         let index = itemdate[section]
 //        let index = newItemDatas[section]
 //        let indexDate = index.date
-        let calendar = Calendar.current
-        let day = calendar.component(.day, from: index)
-        let month = calendar.component(.month, from: index)
-        let year = calendar.component(.year, from: index)
-
-        return "\(year)年\(month)月\(day)日"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = NSLocalizedString("MMM d, yyyy", comment: "")
+        
+        return "\(dateFormatter.string(from: index))"
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

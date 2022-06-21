@@ -14,7 +14,6 @@
 		2204FA0D283FAC0D00A15DB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2204FA0C283FAC0D00A15DB4 /* Assets.xcassets */; };
 		2204FA10283FAC0D00A15DB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2204FA0E283FAC0D00A15DB4 /* LaunchScreen.storyboard */; };
 		2204FA1828408C2C00A15DB4 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2204FA1728408C2C00A15DB4 /* MainTableViewController.swift */; };
-		2204FA1A2840952300A15DB4 /* HeaderForMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2204FA192840952300A15DB4 /* HeaderForMain.swift */; };
 		2204FA1E2840A31900A15DB4 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2204FA1D2840A31900A15DB4 /* MainTableViewCell.swift */; };
 		2204FA242840D9E200A15DB4 /* AddModificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2204FA232840D9E200A15DB4 /* AddModificationViewController.swift */; };
 		2204FA262841EF3300A15DB4 /* AllItemCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2204FA252841EF3300A15DB4 /* AllItemCategory.swift */; };
@@ -47,7 +46,6 @@
 		2204FA0F283FAC0D00A15DB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2204FA11283FAC0D00A15DB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2204FA1728408C2C00A15DB4 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
-		2204FA192840952300A15DB4 /* HeaderForMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderForMain.swift; sourceTree = "<group>"; };
 		2204FA1D2840A31900A15DB4 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		2204FA232840D9E200A15DB4 /* AddModificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddModificationViewController.swift; sourceTree = "<group>"; };
 		2204FA252841EF3300A15DB4 /* AllItemCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllItemCategory.swift; sourceTree = "<group>"; };
@@ -106,7 +104,6 @@
 			children = (
 				2204FA00283FAC0D00A15DB4 /* AppDelegate.swift */,
 				2204FA02283FAC0D00A15DB4 /* SceneDelegate.swift */,
-				2204FA192840952300A15DB4 /* HeaderForMain.swift */,
 				22590B1F2853745E00240CB3 /* Models */,
 				22590B202853748F00240CB3 /* Views */,
 				22590B21285374DE00240CB3 /* View Controllers */,
@@ -249,7 +246,6 @@
 				2204FA1828408C2C00A15DB4 /* MainTableViewController.swift in Sources */,
 				2204FA0B283FAC0D00A15DB4 /* AccountingApp2.xcdatamodeld in Sources */,
 				22590B12284B644E00240CB3 /* DetaiTableViewCell.swift in Sources */,
-				2204FA1A2840952300A15DB4 /* HeaderForMain.swift in Sources */,
 				22590B082848937F00240CB3 /* ChooseDateViewController.swift in Sources */,
 				22590B33285B44CF00240CB3 /* PhotoViewController.swift in Sources */,
 				2204FA01283FAC0D00A15DB4 /* AppDelegate.swift in Sources */,
