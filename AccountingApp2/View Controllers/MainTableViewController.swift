@@ -104,17 +104,13 @@ class MainTableViewController: UITableViewController {
                     itemDatas.insert(itemdata, at: 0)
                     print("表格新增成功")
                 }
-                
-                print("新增成功")
 //                allItems.insert(allItem, at: 0)
 //                tableView.reloadData()
             }
             container.saveContext()
             tableView.reloadData()
             print("貯存")
-            
         }
-        // Use data from the view controller which initiated the unwind segue
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -201,17 +197,14 @@ class MainTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         let context = container.viewContext
         let itemsData = itemDatas[indexPath.row]
-        
+        //刪除airtable照片網址
         AccountingController.shared.deleteItem(id:itemsData.imageStr ?? "")
-        
+        //刪除CoreData資料
         context.delete(itemsData)
         itemDatas.remove(at: indexPath.row)
         container.saveContext()
         tableView.deleteRows(at: [indexPath], with: .automatic)
         tableView.reloadData()
-        
-        
-        
 //        allItems.remove(at: indexPath.row)
 //        tableView.deleteRows(at: [indexPath], with: .automatic)
     }

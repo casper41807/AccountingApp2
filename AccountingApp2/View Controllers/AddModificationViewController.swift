@@ -255,10 +255,7 @@ class AddModificationViewController: UIViewController,UITextViewDelegate {
                 classificationOutlet.text = NSLocalizedString("Income", comment: "")
                 classificationOutlet.textColor = .red
             }
-            
-            
         }
-        
     }
     
   
@@ -269,17 +266,11 @@ class AddModificationViewController: UIViewController,UITextViewDelegate {
         let money = moneyTextField.text ?? ""
         let date = datePickerOutlet.date
         let category = categoryOutlet.titleLabel?.text
-//        let category = category
         let source = sourceTextField.text ?? ""
-//        let source = source
         let classification = classificationOutlet.text
-//        let classification = classification
         let remark = remarkTextView.text ?? ""
-        
 //        let photo = photoOutlet.image(for: .normal)?.pngData()
-
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
-        
         
         if segue.identifier == "backMainView"{
             if itemdata == nil{
@@ -320,14 +311,12 @@ class AddModificationViewController: UIViewController,UITextViewDelegate {
                 itemdata?.imageStr = imageStr
             }
 //            itemdata?.photo = photo
-
         }
 //        allItem = AllItem(money: money, date: date, category: category!, source: source, classification: classification!)
     }
 
     @IBAction func okBarButton(_ sender: UIBarButtonItem) {
       
-        
             photoActivityIndicator.startAnimating()
             okOutlet.isEnabled = false
             if moneyTextField.text?.isEmpty != true,sourceTextField.text?.isEmpty != true{
@@ -353,9 +342,7 @@ class AddModificationViewController: UIViewController,UITextViewDelegate {
                                             self?.noConnection.isHidden = true
                                         }
                                     }
-                                    
                                 }
-
                         }else{
                             performSegue(withIdentifier: "backMainView", sender: nil)
                         }
@@ -388,32 +375,58 @@ class AddModificationViewController: UIViewController,UITextViewDelegate {
                         }
                     }
                 }else{
-                    if selectPhoto == true{
-                        AccountingController.shared.uploadImage(uiImage: previewImage ?? UIImage(), num: 1, id: itemdata?.imageStr) { [weak self] result in
-                            switch result{
-                            case .success(let str):
-                                print(str)
-                                DispatchQueue.main.async { [weak self] in
-                                    self?.photoActivityIndicator.stopAnimating()
-                                    self?.performSegue(withIdentifier: "backSearchView", sender: nil)
+                    if itemdata?.imageStr == nil{
+                        if selectPhoto == true{
+                           
+                            AccountingController.shared.uploadImage(uiImage: previewImage ?? UIImage(),num: 0,id: nil) { [weak self] result in
+                                    switch result{
+                                    case .success(let str):
+                                        self?.imageStr = str
+                                        DispatchQueue.main.async { [weak self] in
+                                            self?.photoActivityIndicator.stopAnimating()
+                                            self?.performSegue(withIdentifier: "backSearchView", sender: nil)
+                                        }
+                                    case .failure(let error):
+                                        print(error)
+                                        self?.okOutlet.isEnabled = true
+                                        self?.photoActivityIndicator.stopAnimating()
+                                        self?.noConnection.isHidden = false
+                                        self?.noConnection.text = NSLocalizedString("No internet connection\nRecording photo need internet", comment: "")
+                                        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { [weak self] _ in
+                                            self?.noConnection.isHidden = true
+                                        }
+                                    }
                                 }
-                            case .failure(let error):
-                                print(error)
-                                self?.okOutlet.isEnabled = true
-                                self?.photoActivityIndicator.stopAnimating()
-                                self?.noConnection.isHidden = false
-                                self?.noConnection.text = NSLocalizedString("No internet connection\nRecording photo need internet", comment: "")
-                                Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { [weak self] _ in
-                                    self?.noConnection.isHidden = true
-                                }
-                            }
-                            
+                        }else{
+                            performSegue(withIdentifier: "backSearchView", sender: nil)
                         }
                     }else{
-                        photoActivityIndicator.stopAnimating()
-                        performSegue(withIdentifier: "backSearchView", sender: nil)
+                        if selectPhoto == true{
+                            AccountingController.shared.uploadImage(uiImage: previewImage ?? UIImage(), num: 1, id: itemdata?.imageStr) { [weak self] result in
+                                switch result{
+                                case .success(let str):
+                                    print(str)
+                                    DispatchQueue.main.async { [weak self] in
+                                        self?.photoActivityIndicator.stopAnimating()
+                                        self?.performSegue(withIdentifier: "backSearchView", sender: nil)
+                                    }
+                                case .failure(let error):
+                                    print(error)
+                                    self?.okOutlet.isEnabled = true
+                                    self?.photoActivityIndicator.stopAnimating()
+                                    self?.noConnection.isHidden = false
+                                    self?.noConnection.text = NSLocalizedString("No internet connection\nRecording photo need internet", comment: "")
+                                    Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { [weak self] _ in
+                                        self?.noConnection.isHidden = true
+                                    }
+                                }
+                                
+                            }
+                        }else{
+                            photoActivityIndicator.stopAnimating()
+                            performSegue(withIdentifier: "backSearchView", sender: nil)
+                        }
                     }
-                    
                 }
             }else{
                 okOutlet.isEnabled = true

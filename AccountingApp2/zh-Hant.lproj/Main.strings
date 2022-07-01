@@ -53,7 +53,7 @@
 "bRY-bT-87S.configuration.title" = "點我選擇結束日期";
 
 /* Class = "UIButton"; normalTitle = "結束日期"; ObjectID = "bRY-bT-87S"; */
-"bRY-bT-87S.normalTitle" = "結束日期";
+"bRY-bT-87S.normalTitle" = "點我選擇結束日期";
 
 /* Class = "UILabel"; text = "分類"; ObjectID = "bRo-8x-QFd"; */
 "bRo-8x-QFd.text" = "分類";

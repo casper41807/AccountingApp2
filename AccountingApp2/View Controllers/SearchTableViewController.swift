@@ -25,8 +25,6 @@ class SearchTableViewController: UITableViewController,UISearchResultsUpdating, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UINib(nibName: "DetailTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailTableViewCell")
-        
         //遵從 protocol UISearchResultsUpdating
         searchController.searchResultsUpdater = self
 
@@ -61,6 +59,8 @@ class SearchTableViewController: UITableViewController,UISearchResultsUpdating, 
         label.text = NSLocalizedString("Search", comment: "")
         
         navigationItem.titleView = label
+        
+        tableView.register(UINib(nibName: "DetailTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailTableViewCell")
     
     }
     //手勢點選空白處收起searchBar鍵盤

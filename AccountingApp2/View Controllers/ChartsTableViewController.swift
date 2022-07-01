@@ -23,6 +23,7 @@ class ChartsTableViewController: UITableViewController,SentBackData {
     var container: NSPersistentContainer!
     var itemDatas = [ItemData]()
     var num = 1
+//    var enums:DateChoose = .Month
     var today = Date()
     
     var start = Date()

@@ -12,9 +12,9 @@ protocol SentBackData{
     func dismissbackStartEnd(start:Date,end:Date,num:Int)
 }
 
-protocol SentBackStartEndDate{
-    func dissmissbackStartEnd(start:Date,end:Date)
-}
+//protocol SentBackStartEndDate{
+//    func dissmissbackStartEnd(start:Date,end:Date)
+//}
 
 class ChooseDateViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
     

@@ -7,15 +7,19 @@
 
 import Foundation
 
-struct AllItem{
-    var money:String
-    var date:Date
-    var category:String
-    var source:String
-    var classification:String
-    
+//struct AllItem{
+//    var money:String
+//    var date:Date
+//    var category:String
+//    var source:String
+//    var classification:String
+//
+//}
+enum DateChoose:String{
+    case Year
+    case Month
+    case Custom
 }
-
 
 enum ExpenseCategory: String, CaseIterable, Codable{
     case Food

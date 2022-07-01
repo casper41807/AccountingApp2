@@ -31,7 +31,7 @@ class DetailTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.title = expenseCategory[row].rawValue
+        navigationItem.title = NSLocalizedString("\(expenseCategory[row].rawValue)", comment: "")
         overrideUserInterfaceStyle = .light
     }
     
