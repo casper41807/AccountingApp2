@@ -421,7 +421,8 @@
 				DEVELOPMENT_TEAM = B6P696Q79U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AccountingApp2/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "是否同意使用相機功能";
+				INFOPLIST_KEY_NSCameraUsageDescription = "讓您可拍攝照片方便記錄帳務資料";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "讓你可選擇相簿照片方便記錄帳務資訊";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -451,7 +452,8 @@
 				DEVELOPMENT_TEAM = B6P696Q79U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AccountingApp2/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "是否同意使用相機功能";
+				INFOPLIST_KEY_NSCameraUsageDescription = "讓您可拍攝照片方便記錄帳務資料";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "讓你可選擇相簿照片方便記錄帳務資訊";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

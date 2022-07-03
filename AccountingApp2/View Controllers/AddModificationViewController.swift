@@ -274,6 +274,7 @@ class AddModificationViewController: UIViewController,UITextViewDelegate {
         
         if segue.identifier == "backMainView"{
             if itemdata == nil{
+                
                 let itemData = ItemData(context: appDelegate.persistentContainer.viewContext)
                 itemData.money = Int32(money) ?? 0
                 itemData.date = date
