@@ -7,3 +7,4 @@
 */
 
 "NSCameraUsageDescription" = "讓您可拍攝照片方便記錄帳務資料";
+"CFBundleDisplayName" = "隨手記帳";

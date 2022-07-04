@@ -7,3 +7,4 @@
 */
 
 "NSCameraUsageDescription" = "Allows you to take photos to record accounting information";
+"CFBundleDisplayName" = "HandyRecord";

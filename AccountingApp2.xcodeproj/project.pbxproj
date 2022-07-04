@@ -435,8 +435,8 @@
 				DEVELOPMENT_TEAM = B6P696Q79U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AccountingApp2/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "讓您可拍攝照片方便記錄帳務資料";
 				INFOPLIST_KEY_CFBundleDisplayName = "隨手記帳";
+				INFOPLIST_KEY_NSCameraUsageDescription = "讓您可拍攝照片方便記錄帳務資料";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "讓你可選擇相簿照片方便記錄帳務資訊";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -448,8 +448,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.casper.AccountingApp.prod;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -467,8 +467,8 @@
 				DEVELOPMENT_TEAM = B6P696Q79U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AccountingApp2/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "讓您可拍攝照片方便記錄帳務資料";
 				INFOPLIST_KEY_CFBundleDisplayName = "隨手記帳";
+				INFOPLIST_KEY_NSCameraUsageDescription = "讓您可拍攝照片方便記錄帳務資料";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "讓你可選擇相簿照片方便記錄帳務資訊";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -480,8 +480,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.casper.AccountingApp.prod;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
