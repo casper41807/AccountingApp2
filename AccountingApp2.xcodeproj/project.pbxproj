@@ -34,6 +34,7 @@
 		22590B3128584BA700240CB3 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 22590B3028584BA700240CB3 /* Kingfisher */; };
 		22590B33285B44CF00240CB3 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22590B32285B44CE00240CB3 /* PhotoViewController.swift */; };
 		227E7331285CD63D00A6014B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 227E7333285CD63D00A6014B /* Localizable.strings */; };
+		22F47A2B287297C600C7E5A9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 22F47A2D287297C600C7E5A9 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,8 @@
 		227E7334285CD6CE00A6014B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		227E7335285D8FE700A6014B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		227E7336285D901800A6014B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		22F47A2C287297C600C7E5A9 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		22F47A2E287297D200C7E5A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +114,7 @@
 				227E7333285CD63D00A6014B /* Localizable.strings */,
 				22590B1828506C1100240CB3 /* DetailTableViewCell.xib */,
 				2204FA0C283FAC0D00A15DB4 /* Assets.xcassets */,
+				22F47A2D287297C600C7E5A9 /* InfoPlist.strings */,
 				2204FA0E283FAC0D00A15DB4 /* LaunchScreen.storyboard */,
 				2204FA11283FAC0D00A15DB4 /* Info.plist */,
 				2204FA09283FAC0D00A15DB4 /* AccountingApp2.xcdatamodeld */,
@@ -225,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				227E7331285CD63D00A6014B /* Localizable.strings in Resources */,
+				22F47A2B287297C600C7E5A9 /* InfoPlist.strings in Resources */,
 				2204FA10283FAC0D00A15DB4 /* LaunchScreen.storyboard in Resources */,
 				2204FA0D283FAC0D00A15DB4 /* Assets.xcassets in Resources */,
 				22590B1A28506C1100240CB3 /* DetailTableViewCell.xib in Resources */,
@@ -290,6 +295,15 @@
 				227E7334285CD6CE00A6014B /* zh-Hant */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		22F47A2D287297C600C7E5A9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22F47A2C287297C600C7E5A9 /* zh-Hant */,
+				22F47A2E287297D200C7E5A9 /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -422,6 +436,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AccountingApp2/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "讓您可拍攝照片方便記錄帳務資料";
+				INFOPLIST_KEY_CFBundleDisplayName = "隨手記帳";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "讓你可選擇相簿照片方便記錄帳務資訊";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -453,6 +468,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AccountingApp2/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "讓您可拍攝照片方便記錄帳務資料";
+				INFOPLIST_KEY_CFBundleDisplayName = "隨手記帳";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "讓你可選擇相簿照片方便記錄帳務資訊";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

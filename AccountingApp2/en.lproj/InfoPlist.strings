@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  AccountingApp2
+
+  Created by 陳秉軒 on 2022/7/4.
+  
+*/
+
+"NSCameraUsageDescription" = "Allows you to take photos to record accounting information";
