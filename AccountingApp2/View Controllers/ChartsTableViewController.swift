@@ -77,7 +77,8 @@ class ChartsTableViewController: UITableViewController,SentBackData {
         let dataSet = PieChartDataSet(entries: pieChartDataEntries, label: "")
         // 設定項目顏色
         dataSet.colors = expensecategory.map{ (category)->UIColor in
-            return UIColor(named: "\(category.rawValue)Color") ?? UIColor.white
+            return category.color
+//            return UIColor(named: "\(category.rawValue)Color") ?? UIColor.white
         }
         // 點選後突出距離
         dataSet.selectionShift = 7
@@ -138,7 +139,8 @@ class ChartsTableViewController: UITableViewController,SentBackData {
         let dataSet = PieChartDataSet(entries: pieChartDataEntries, label: "")
         // 設定項目顏色
         dataSet.colors = incomecategory.map{ (category)->UIColor in
-            return UIColor(named: "\(category.rawValue)Color") ?? UIColor.white
+            return category.color
+//            return UIColor(named: "\(category.rawValue)Color") ?? UIColor.white
         }
         // 點選後突出距離
         dataSet.selectionShift = 7
